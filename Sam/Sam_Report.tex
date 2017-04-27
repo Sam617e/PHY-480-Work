@@ -5,18 +5,18 @@
 \usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
 \usepackage{color}
 \begin{document}
-\title{Project 1}
-\author{Kristen Parzuchowski, Parker Brue, Sam Edwards}
+\title{Project 2}
+\author{Sam Edwards}
 \affiliation{Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48823}
 \begin{abstract}
-We present our Ferrari algorithm for solving linear equations. We wrote the one-dimensional Poisson equation, utilizing Dirichlet boundary conditions, as a linear set of equations and as a tridiagonal matrix. We compared a specialized algorithm for solving the tridiagonal matrix to an LU-decomposition of said matrix.  Our best algorithm, the specialized solver, runs as $4n$ FLOPS with $n$ the dimensionality of the matrix.
+I aim to solve Schroedinger's equation for two electrons in a three-dimensional harmonic oscillator well both with and without a repulsive Coulomb interaction. This is done by reformulating the equation as a discretized eigenvalue equation using matrices. Jacobi's method for diagonalizing a tridiagonal matrix is analyzed and implemented here. In both cases, a finite number of transformations via Jacobi's rotation matrix is necessary to successfully diagonalize the matrix.
 \end{abstract}
 \maketitle
 
-\section{Introduction}
+\section{Introduction*}
 As an introduction to the central ideas of the class, we studied the one-dimensional Poisson equation with Dirichlet boundary conditions. Namely, transforming the differential equation into a set of linear equations, and consequently, a matrix. We implemented a general algorithm, a specialized algorithm, and a LU-decomposition algorithm. In the course of this report, we introduce the theoretical model and the different algorithms  we developed, then discuss the results of the different methods. Important points of comparison lie with relative error and relative speed of the calculation due to FLOPS. This report is specialized to Sam's results for his Python version of the algorithms.
 
-\section{Theory}
+\section{Theory*}
 	\subsection{Theoretical solution of the one dimensional Poisson equation}	
 In general, The one dimensional Poisson equation reads as follows: \begin{equation} -u^{''}(x) = f(x)     \end{equation}  Through discretized approximation of {\it u}, we can solve for {\it f} using a set of linear equations: \begin{equation}
 	f(x)=-\frac{u_{i+1}+u_{i-1}-2u_{i}}{h^{2}}      ;      i=1,...,n
@@ -107,7 +107,7 @@ $\mathbf{A}$, the matrix can be decomposed into the product of  $\mathbf{U}$, up
 	Which allows you to replace $\mathbf{A}$ and then use either triangular matrix to solve the problem.
 	\begin{equation}\label{eq:i} \mathbf{Ly=b} \end{equation}
 	\begin{equation}\label{eq:j} \mathbf{Ux=y} \end{equation}
-\section{Algorithms} \label{sec:algo}	
+\section{Algorithms*} \label{sec:algo}	
 
 The matrix that represents the set of linear equations referred to in equation (2) appears here as a 4x4 matrix:
 \begin{center}
@@ -161,7 +161,7 @@ $\begin{bmatrix}
 In first using the lower triangular matrix, equation (\ref{eq:i}) can be solved. The solution found for $x$ can then be used to solve equation (\ref{eq:j}).	
 
 
-\section{Methods}
+\section{Methods*}
 
 We will briefly explain the methods implemented in this project. For a complete understanding, visit our Github page: (\url{https://github.com/parzuch9/KESP/Project1}).
 
@@ -211,7 +211,7 @@ In order to properly test the effectiveness of our algorithm, we are measuring t
 	\end{equation}
 {\it u}\textsubscript{i} is the analytic solution, and {\it v}\textsubscript{i} is the numerical solution.
 
-\section{Results and discussions}
+\section{Results and discussions*}
 
   By running the program for different step sizes with x in a range [0,1], we can see how the data changes with data points (Figure 6\ref{uvx}). You can see that the approximated numerical solution gets closer to the analytical solution as n increases by multiples of ten. n = $10^{3}$ is actually so close to the analytical solution that it is hard to tell them apart. I did not include n = $10^{5}$ because it was indistinguishable from the analytical plot. 
 
@@ -258,7 +258,7 @@ In order to properly test the effectiveness of our algorithm, we are measuring t
 	\end{center}
 	
 	
-\section{Conclusions}
+\section{Conclusions*}
 \subsection{Results}
 	We investigated a few ways of solving a tridiagonal matrix problem. As expected, specialization outperforms generalized "brute force" methods. Specialization is faster, and in this case, can be taken out into greater orders of magnitude. Although there is improvement in this realm, the error did steadily increase as the power of ten increased.
 
